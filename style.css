@@ -15,6 +15,13 @@ h1 {
 	text-align: center;
 }
 
+button {
+	background-color: #f1f1f1;
+	border: outset;
+	border-radius: 15px;
+	font-size: larger;
+}
+
 .container {
 	display: flex;
 	justify-content: center;
