@@ -26,14 +26,27 @@ button {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	margin: auto;
+	margin: 5% auto;
 	height: 95%;
 	width: 80%;
 	border: 2px solid black;
 }
 
+.expression {
+	margin: 5px auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	width: 90%;
+	height: 30px;
+	border: 1px solid black;
+	padding: 5px;
+	font-size: 1rem;
+}
+
 .output {
-	margin: 10px auto;
+	margin: 0px auto;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -41,7 +54,7 @@ button {
 	height: 50px;
 	border: 1px solid black;
 	padding: 5px;
-	font-size: 1.5rem;
+	font-size: 2rem;
 }
 
 .keyPanel {
