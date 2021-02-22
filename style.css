@@ -26,9 +26,10 @@ button {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	margin: 5% auto;
+	margin: 10% auto;
 	height: 95%;
 	width: 80%;
+	max-width: 500px;
 	border: 2px solid black;
 }
 
