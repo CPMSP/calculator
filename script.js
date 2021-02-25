@@ -78,8 +78,15 @@ operations.forEach((operator) => {
 	});
 });
 
-modifier.addEventListener('click', (value) => {
-	return value * -1;
+modifier.addEventListener('click', () => {
+	if (operation === '') {
+		firstFigure.textContent = firstFigure.textContent * -1;
+		a = firstFigure.textContent;
+	}
+	else if (operation !== '') {
+		secondFigure.textContent = secondFigure.textContent * -1;
+		b = secondFigure.textContent;
+	}
 });
 
 decimal.addEventListener('click', (e) => {

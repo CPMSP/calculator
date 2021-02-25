@@ -68,3 +68,11 @@ button {
 	gap: .25rem;
 	padding: 5px;
 }
+
+.operation {
+	background: lightsteelblue;
+}
+
+#clear {
+	background: red;
+}
