@@ -63,18 +63,18 @@ numbers.forEach((number) => {
 
 operations.forEach((operator) => {
 	operator.addEventListener('click', (e) => {
-		sign.textContent = e.target.id;
-		operation = e.target.id;
-		if (a === '') {
+		if (a === '' && outcome !== '') {
 			firstFigure.textContent = outcome;
-			a = outcome;
+			a = parseFloat(outcome);
 		}
 		else if (a !== '' && b !== '' && operation !== '') {
-			console.log(a);
-			console.log(b);
-			console.log(operation);
 			operate(operation, a, b);
+			a = outcome;
+			firstFigure.textContent = outcome;
+			sign.textContent = operation;
 		}
+		sign.textContent = e.target.id;
+		operation = e.target.id;
 	});
 });
 
