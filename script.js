@@ -9,8 +9,11 @@ const sign = document.querySelector('.sign');
 
 const modifier = document.querySelector('#plusMinus');
 const decimal = document.querySelector('#decimal');
+const percent = document.querySelector('#percent');
 
 const clear = document.querySelector('#clear');
+const back = document.querySelector('#back');
+
 const calculate = document.querySelector('#equals');
 
 const numbers = document.querySelectorAll('.numeral');
@@ -105,6 +108,32 @@ decimal.addEventListener('click', (e) => {
 		else {
 			secondFigure.textContent += '.';
 		}
+	}
+});
+
+percent.addEventListener('click', () => {
+	if (operation === '') {
+		firstFigure.textContent = firstFigure.textContent * 0.01;
+		a = parseFloat(firstFigure.textContent);
+	}
+	else if (operation !== '') {
+		secondFigure.textContent = secondFigure.textContent * 0.01;
+		b = parseFloat(secondFigure.textContent);
+	}
+});
+
+back.addEventListener('click', () => {
+	if (operation === '') {
+		firstFigure.textContent = Array.from(
+			firstFigure.textContent.slice(0, -1)
+		).join('');
+		a = parseFloat(firstFigure.textContent);
+	}
+	else if (operation !== '') {
+		secondFigure.textContent = Array.from(
+			secondFigure.textContent.slice(0, -1)
+		).join('');
+		b = parseFloat(secondFigure.textContent);
 	}
 });
 
