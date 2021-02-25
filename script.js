@@ -69,9 +69,12 @@ operations.forEach((operator) => {
 			firstFigure.textContent = outcome;
 			a = outcome;
 		}
-		// else if (a !== '' && b !== '' && operation !== '') {
-		// 	operate(operation, a, b);
-		// }
+		else if (a !== '' && b !== '' && operation !== '') {
+			console.log(a);
+			console.log(b);
+			console.log(operation);
+			operate(operation, a, b);
+		}
 	});
 });
 
@@ -81,10 +84,20 @@ modifier.addEventListener('click', (value) => {
 
 decimal.addEventListener('click', (e) => {
 	if (operation === '' && outcome === '') {
-		firstFigure.textContent += '.';
+		if (firstFigure.textContent.includes('.')) {
+			return;
+		}
+		else {
+			firstFigure.textContent += '.';
+		}
 	}
 	else if (operation !== '') {
-		secondFigure.textContent += '.';
+		if (secondFigure.textContent.includes('.')) {
+			return;
+		}
+		else {
+			secondFigure.textContent += '.';
+		}
 	}
 });
 
@@ -102,9 +115,11 @@ function clearAll() {
 
 clear.addEventListener('click', clearAll);
 
-calculate.addEventListener('click', () => {
+function calc() {
 	operate(operation, a, b);
 	operation = '';
 	a = '';
 	b = '';
-});
+}
+
+calculate.addEventListener('click', calc);
