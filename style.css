@@ -31,6 +31,7 @@ button {
 	width: 80%;
 	max-width: 500px;
 	border: 2px solid black;
+	border-radius: 15px;
 }
 
 .expression {
@@ -40,7 +41,7 @@ button {
 	justify-content: flex-end;
 	align-items: center;
 	width: 90%;
-	height: 30px;
+	height: 2rem;
 	border: 1px solid black;
 	padding: 5px;
 	font-size: 1rem;
@@ -52,7 +53,7 @@ button {
 	justify-content: flex-end;
 	align-items: center;
 	width: 90%;
-	height: 50px;
+	height: 5rem;
 	border: 1px solid black;
 	padding: 5px;
 	font-size: 2rem;

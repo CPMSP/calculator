@@ -24,6 +24,21 @@ let b = '';
 let operation = '';
 let outcome = '';
 
+numbers.forEach((number) => {
+	number.addEventListener('click', (number) => numberInput(number));
+});
+
+operations.forEach((operator) => {
+	operator.addEventListener('click', (operator) => setOperation(operator));
+});
+
+modifier.addEventListener('click', () => setModifier());
+decimal.addEventListener('click', () => placeDecimal());
+percent.addEventListener('click', () => makePercent());
+back.addEventListener('click', () => backspace());
+clear.addEventListener('click', clearAll);
+calculate.addEventListener('click', calc);
+
 function operate(operation, a, b) {
 	if (operation === '+') {
 		outcome = a + b;
@@ -50,49 +65,45 @@ function operate(operation, a, b) {
 	sign.textContent = '';
 }
 
-numbers.forEach((number) => {
-	number.addEventListener('click', (e) => {
-		if (operation === '') {
-			output.textContent = '';
-			firstFigure.textContent += e.target.id;
-			a = parseFloat(firstFigure.textContent);
-		}
-		else if (operation !== '') {
-			secondFigure.textContent += e.target.id;
-			b = parseFloat(secondFigure.textContent);
-		}
-	});
-});
+function numberInput(e) {
+	if (operation === '') {
+		output.textContent = '';
+		firstFigure.textContent += e.target.id;
+		a = parseFloat(firstFigure.textContent);
+	}
+	else if (operation !== '') {
+		secondFigure.textContent += e.target.id;
+		b = parseFloat(secondFigure.textContent);
+	}
+}
 
-operations.forEach((operator) => {
-	operator.addEventListener('click', (e) => {
-		if (a === '' && outcome !== '') {
-			firstFigure.textContent = outcome;
-			a = parseFloat(outcome);
-		}
-		else if (a !== '' && b !== '' && operation !== '') {
-			operate(operation, a, b);
-			a = outcome;
-			firstFigure.textContent = outcome;
-			sign.textContent = operation;
-		}
-		sign.textContent = e.target.id;
-		operation = e.target.id;
-	});
-});
+function setOperation(e) {
+	if (a === '' && outcome !== '') {
+		firstFigure.textContent = outcome;
+		a = parseFloat(outcome);
+	}
+	else if (a !== '' && b !== '' && operation !== '') {
+		operate(operation, a, b);
+		a = outcome;
+		firstFigure.textContent = outcome;
+		sign.textContent = operation;
+	}
+	sign.textContent = e.target.id;
+	operation = e.target.id;
+}
 
-modifier.addEventListener('click', () => {
+function setModifier() {
 	if (operation === '') {
 		firstFigure.textContent = firstFigure.textContent * -1;
-		a = firstFigure.textContent;
+		a = parseFloat(firstFigure.textContent);
 	}
 	else if (operation !== '') {
 		secondFigure.textContent = secondFigure.textContent * -1;
-		b = secondFigure.textContent;
+		b = parseFloat(secondFigure.textContent);
 	}
-});
+}
 
-decimal.addEventListener('click', (e) => {
+function placeDecimal() {
 	if (operation === '' && outcome === '') {
 		if (firstFigure.textContent.includes('.')) {
 			return;
@@ -109,9 +120,9 @@ decimal.addEventListener('click', (e) => {
 			secondFigure.textContent += '.';
 		}
 	}
-});
+}
 
-percent.addEventListener('click', () => {
+function makePercent() {
 	if (operation === '') {
 		firstFigure.textContent = firstFigure.textContent * 0.01;
 		a = parseFloat(firstFigure.textContent);
@@ -120,9 +131,9 @@ percent.addEventListener('click', () => {
 		secondFigure.textContent = secondFigure.textContent * 0.01;
 		b = parseFloat(secondFigure.textContent);
 	}
-});
+}
 
-back.addEventListener('click', () => {
+function backspace() {
 	if (operation === '') {
 		firstFigure.textContent = Array.from(
 			firstFigure.textContent.slice(0, -1)
@@ -135,7 +146,7 @@ back.addEventListener('click', () => {
 		).join('');
 		b = parseFloat(secondFigure.textContent);
 	}
-});
+}
 
 function clearAll() {
 	firstFigure.textContent = '';
@@ -149,13 +160,9 @@ function clearAll() {
 	output.style.fontSize = '';
 }
 
-clear.addEventListener('click', clearAll);
-
 function calc() {
 	operate(operation, a, b);
 	operation = '';
 	a = '';
 	b = '';
 }
-
-calculate.addEventListener('click', calc);
