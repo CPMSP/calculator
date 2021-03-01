@@ -24,6 +24,8 @@ let b = '';
 let operation = '';
 let outcome = '';
 
+window.addEventListener('keydown', keyInput);
+
 numbers.forEach((number) => {
 	number.addEventListener('click', (number) => numberInput(number));
 });
@@ -39,7 +41,23 @@ back.addEventListener('click', () => backspace());
 clear.addEventListener('click', clearAll);
 calculate.addEventListener('click', calc);
 
+function keyInput(e) {
+	// if (e.key >= 0 && e.key <= 9) numberInput(e.key);
+	// if (e.key === '/' || e.key === '*' || e.key === '-' || e.key === '+')
+	// 	setOperation(e.key);
+	// if (e.key === 'PageUp') setModifier();
+	// if (e.key === '.') placeDecimal();
+	// if (e.key === 'PageDown') makePercent();
+	// if (e.key === 'Delete' || e.key === 'Backspace') backspace();
+	// if (e.key === 'Escape') clearAll();
+	// if (e.key === 'Enter' || e.key === '=') calc();
+	console.log(e.key);
+}
+
 function operate(operation, a, b) {
+	if (!b) {
+		outcome = a;
+	}
 	if (operation === '+') {
 		outcome = a + b;
 	}
