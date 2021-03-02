@@ -109,4 +109,12 @@ p {
 	h1 {
 		display: none;
 	}
+
+	button {
+		background-color: #f1f1f1;
+		border: 1px solid grey;
+		border-radius: 15px;
+		height: 1rem;
+		font-size: small;
+	}
 }
