@@ -81,6 +81,7 @@ function operate(operation, a, b) {
 	firstFigure.textContent = '';
 	secondFigure.textContent = '';
 	sign.textContent = '';
+	operation = '';
 }
 
 function numberInput(e) {
@@ -122,7 +123,7 @@ function setModifier() {
 }
 
 function placeDecimal() {
-	if (operation === '' && outcome === '') {
+	if (operation === '') {
 		if (firstFigure.textContent.includes('.')) {
 			return;
 		}
