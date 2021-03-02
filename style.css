@@ -104,3 +104,9 @@ p {
 #plusMinus {
 	background-color: cadetblue;
 }
+
+@media (orientation: landscape) and (max-height: 400px) {
+	h1 {
+		display: none;
+	}
+}
